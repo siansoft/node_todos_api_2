@@ -5,5 +5,17 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client)=>{
         return console.log('Unable to connect to Mongodb Server');
     }
         console.log('Connect to Mongodb Server');
+        const db = client.db('TodoApp');
+        db.collection('Todos').insertOne({
+            text: 'Something to do',
+            completed: 'false'
+        }, (err, result)=>{
+            if(err){
+                return console.log('Unable to insert todo', err);
+            }
+            console.log(JSON.stringify(result.ops, undefined, 2));
+        });
         client.close();
+        //console.log('connection to Mongodb Server Closed');
+
 });
