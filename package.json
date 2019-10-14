@@ -11,5 +11,13 @@
     "mongodb": "^3.3.2"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siansoft/node_todos_api_2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/siansoft/node_todos_api_2/issues"
+  },
+  "homepage": "https://github.com/siansoft/node_todos_api_2#readme",
   "description": ""
 }
