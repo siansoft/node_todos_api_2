@@ -16,20 +16,20 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
         */
 
   // fetch certrin values query
-  db.collection('Todos').find({ completed: 'false' }).toArray().then((doc) => {
+  /* db.collection('Todos').find({ completed: 'false' }).toArray().then((doc) => {
     console.log('.....ToDos.....')
     console.log(doc)
   }, (err) => {
     console.log('Unable to get data', err)
   })
-
+  */
   db.collection('Todos').find({
-    _id: new Object('5da4a62ff87a0956648b6ccc')
+    _id: '5da4a62ff87a0956648b6ccc'
   }).toArray().then((doc) => {
     console.log('ToDos')
     console.log(doc)
   }, (err) => {
-    console.log('Unbale to get data', err)
+    console.log('Unable to get data', err)
   })
   client.close()
 })

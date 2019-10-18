@@ -1,4 +1,14 @@
 const MongoClient = require('mongodb').MongoClient
+
+const docs = {
+  text: 'going to iraq',
+  completed: 'false'
+}
+const docs1 = {
+  text: 'going to Oman',
+  completed: 'false'
+}
+
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   if (err) {
     return console.log('Unable to connect to Mongodb Server')
@@ -7,7 +17,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   const db = client.db('TodoApp') // Connecting the the DB
 
   // Connecting to collaction Todos Table and insert data
-  db.collection('Todos').insertOne({
+  /* db.collection('Todos').insertOne({
     text: 'going to Mall',
     completed: 'false'
   }, (err, result) => {
@@ -17,6 +27,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
     console.log(JSON.stringify(result.ops, undefined, 2))
     client.close()
   })
+ */
+  
+  db.collection('Todos').insertMany([docs, docs1], (err, result) => {
+    if (err) {
+      return console.log('Unable to insert todo', err)
+    }
+    console.log(JSON.stringify(result.ops, undefined, 2))
+  })
+  client.close()
   /* db.collection('Users').insertOne({
             name: 'Mohd',
             age: 52,
