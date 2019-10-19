@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient
-
+const ObjectID = require('mongodb').ObjectID
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   if (err) {
     return console.log('Unable to connect to Mongodb Server')
@@ -24,7 +24,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
   })
   */
   db.collection('Todos').find({
-    _id: '5da4a62ff87a0956648b6ccc'
+    _id: new ObjectID('5da4a62ff87a0956648b6ccc')
   }).toArray().then((doc) => {
     console.log('ToDos')
     console.log(doc)
