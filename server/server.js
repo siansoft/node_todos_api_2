@@ -19,3 +19,4 @@ app.post('/todos', (req, res) => {
     res.status(400).send(e)
   })
 })
+module.exports = { app }

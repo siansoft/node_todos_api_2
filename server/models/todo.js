@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var Todo = mongoose.model('Todo', {
+var mongoosex = require('mongoose')
+var Todo = mongoosex.model('Todo', {
   text: {
     type: String,
     require: true,
